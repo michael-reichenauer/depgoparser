@@ -3,7 +3,9 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
+	"os"
 	"path/filepath"
 )
 
@@ -13,16 +15,25 @@ var (
 
 // The main entry point
 func main() {
+	flag.Usage = func() {
+		fmt.Fprintf(os.Stderr, "Usage of %s:\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "> %s [-o output] <go-folder>\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "\nFlags:\n")
+		flag.PrintDefaults()
+	}
 	flag.Parse()
 	args := flag.Args()
 
 	if len(args) != 1 {
 		flag.Usage()
-		log.Fatal("Error: No go project folder path was specified")
-		return
+		log.Fatal("Error: Need to specify one project folder path")
 	}
 
-	projectPath := args[0]
+	projectPath, err := filepath.Abs(args[0])
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	modelFilePath := *output
 
 	if *output == "" {
@@ -30,7 +41,7 @@ func main() {
 		modelFilePath = projectPath + "\\" + modelName + ".model.json"
 	}
 
-	err := parseProject(projectPath, modelFilePath)
+	err = parseProject(projectPath, modelFilePath)
 	if err != nil {
 		reportError(err)
 	}
