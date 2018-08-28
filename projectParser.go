@@ -36,21 +36,22 @@ func parseProjectGoFiles(projectFolderPath string, modelItems modelItems) ([]ite
 			return nil
 		}
 
-		modelItems, err = parseGoFile(path, projectName, modelItems)
+		modelItems, err = parseGoFile(projectFolderPath, path, projectName, modelItems)
 		return err
 	})
 
 	return modelItems, err
 }
 
-func parseGoFile(path, workName string, modelItems modelItems) (modelItems, error) {
+func parseGoFile(projectFolderPath, path, workName string, modelItems modelItems) (modelItems, error) {
 	goSyntaxTree, err := parseGoSyntax(path)
 	if err != nil {
 		reportError(err)
 		return modelItems, err
 	}
 
-	fileInfo := newFileContext(path, goSyntaxTree, modelItems)
+	packageName := getPackageName(projectFolderPath, path, goSyntaxTree)
+	fileInfo := newFileContext(projectFolderPath, path, packageName, modelItems)
 
 	addPackageNode(goSyntaxTree, workName, &fileInfo)
 	addFileNode(path, &fileInfo)
@@ -115,6 +116,24 @@ func addPackageNode(goSyntaxTree *ast.File, workName string, fileContext *fileCo
 // Add a file node, which will contain all items within a file
 func addFileNode(path string, fileContext *fileContext) {
 	fileContext.addNode(fileContext.fileName, "NameSpace", fileContext.packageName, "go file")
+}
+
+func getPackageName(projectFolderPath, path string, goSyntaxTree *ast.File) string {
+	packageName := goSyntaxTree.Name.Name
+
+	// For nested packages, we need to get the relative path of the package and use as base
+	projectParent := filepath.Dir(projectFolderPath)
+	folderPath := filepath.Dir(filepath.Dir(path))
+	relativePath := folderPath[len(projectParent):]
+	baseName := strings.Replace(relativePath, "\\", ".", -1)
+	baseName = strings.Trim(baseName, ".")
+
+	if baseName == "" {
+		return packageName
+	}
+
+	// Nested package
+	return baseName + "." + packageName
 }
 
 // Ignoring non go files as well as testdata and test files
