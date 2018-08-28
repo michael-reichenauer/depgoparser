@@ -47,5 +47,5 @@ func main() {
 	}
 }
 
-// projectPath := "C:\\Users\\micha\\Go\\src\\github.com\\michael-reichenauer\\depGoParser"
+// projectPath := "C:\\Users\\micha\\Go\\src\\github.com\\michael-reichenauer\\depgoparser"
 // projectPath := "C:\\Users\\micha\\Go\\src\\golang.org\\x\\tools\\cmd\\guru"

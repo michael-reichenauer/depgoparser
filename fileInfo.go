@@ -1,22 +1,22 @@
 package main
 
 import (
-	"go/ast"
 	"path/filepath"
 	"strings"
 )
 
 // Contains data related to a file, while parsing the file
 type fileContext struct {
+	rootPath    string
 	fileName    string
 	packageName string
 	packages    map[string]string
 	modelItems  modelItems
 }
 
-func newFileContext(path string, goSyntaxTree *ast.File, modelItems []item) fileContext {
+func newFileContext(rootPath, path, packageName string, modelItems []item) fileContext {
 	info := fileContext{}
-	info.packageName = goSyntaxTree.Name.Name
+	info.packageName = packageName
 	info.packages = make(map[string]string)
 
 	fileName := filepath.Base(path)
