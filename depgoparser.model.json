@@ -1,0 +1,1035 @@
+{
+  "FormatVersion": "4",
+  "Items": [
+    {
+      "Node": {
+        "Name": "$depgoparser",
+        "Type": "NameSpace",
+        "Description": "Go project"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main",
+        "Parent": "$depgoparser",
+        "Type": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.fileInfo*go",
+        "Parent": "main",
+        "Type": "NameSpace",
+        "Description": "go file"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.fileContext",
+        "Parent": "main.fileInfo*go",
+        "Type": "Type",
+        "Description": "Contains data related to a file, while parsing the file"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.fileContext.rootPath",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.fileContext.fileName",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.fileContext.packageName",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.fileContext.packages",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.fileContext.modelItems",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.fileContext.modelItems",
+        "Target": "main.modelItems",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.newFileContext",
+        "Parent": "main.fileInfo*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.newFileContext",
+        "Target": "main.item",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.newFileContext",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addNode",
+        "Parent": "main.fileInfo*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addLink",
+        "Parent": "main.fileInfo*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main",
+        "Parent": "$depgoparser",
+        "Type": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.functionParser*go",
+        "Parent": "main",
+        "Type": "NameSpace",
+        "Description": "go file"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main",
+        "Target": "go.ast",
+        "TargetType": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseFunction",
+        "Parent": "main.functionParser*go",
+        "Type": "Member",
+        "Description": "Parses a function declaration"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseFunction",
+        "Target": "go.ast.FuncDecl",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseFunction",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addFunctionNode",
+        "Parent": "main.functionParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addFunctionNode",
+        "Target": "go.ast.FuncDecl",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addFunctionNode",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseParameterTypes",
+        "Parent": "main.functionParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseParameterTypes",
+        "Target": "go.ast.FuncDecl",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseParameterTypes",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseResultTypes",
+        "Parent": "main.functionParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseResultTypes",
+        "Target": "go.ast.FuncDecl",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseResultTypes",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main",
+        "Parent": "$depgoparser",
+        "Type": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.importParser*go",
+        "Parent": "main",
+        "Type": "NameSpace",
+        "Description": "go file"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main",
+        "Target": "go.ast",
+        "TargetType": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseImport",
+        "Parent": "main.importParser*go",
+        "Type": "Member",
+        "Description": "Parse import declarations"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseImport",
+        "Target": "go.ast.ImportSpec",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseImport",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.isStandardImport",
+        "Parent": "main.importParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main",
+        "Parent": "$depgoparser",
+        "Type": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.jsonTypes*go",
+        "Parent": "main",
+        "Type": "NameSpace",
+        "Description": "go file"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main",
+        "Target": "encoding.json",
+        "TargetType": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.model",
+        "Parent": "main.jsonTypes*go",
+        "Type": "Type",
+        "Description": "The model, which has format version and an array of nodes and links"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.model.FormatVersion",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.model.Items",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.model.Items",
+        "Target": "main.item",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.item",
+        "Parent": "main.jsonTypes*go",
+        "Type": "Type",
+        "Description": "The item, which can be either a node or a link"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.item.Node",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.item.Node",
+        "Target": "main.node",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.item.Link",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.item.Link",
+        "Target": "main.link",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.node",
+        "Parent": "main.jsonTypes*go",
+        "Type": "Type",
+        "Description": "A node, which e.g. can be a namespace, type member, ..."
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.node.Name",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.node.Parent",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.node.Type",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.node.Description",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.link",
+        "Parent": "main.jsonTypes*go",
+        "Type": "Type",
+        "Description": "A link between two nodes"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.link.Source",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.link.Target",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.link.TargetType",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.modelItems",
+        "Parent": "main.jsonTypes*go",
+        "Type": "Type",
+        "Description": "The node and link items to be written to json file"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.modelItems",
+        "Target": "main.item",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.newModelItems",
+        "Parent": "main.jsonTypes*go",
+        "Type": "Member",
+        "Description": "Creates and link items list to be written to json file"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.newModelItems",
+        "Target": "main.modelItems",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addNode",
+        "Parent": "main.jsonTypes*go",
+        "Type": "Member",
+        "Description": "Adds a node"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addNode",
+        "Target": "main.modelItems",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addLink",
+        "Parent": "main.jsonTypes*go",
+        "Type": "Member",
+        "Description": "Adds a link"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addLink",
+        "Target": "main.modelItems",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.writeModelFile",
+        "Parent": "main.jsonTypes*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.writeModelFile",
+        "Target": "main.modelItems",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.optional",
+        "Parent": "main.jsonTypes*go",
+        "Type": "Member",
+        "Description": "Used when empty text should be exluded froom json objects (as nil)"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main",
+        "Parent": "$depgoparser",
+        "Type": "NameSpace",
+        "Description": "The Go source file parser to produce a Dependinator model in json format"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.main*go",
+        "Parent": "main",
+        "Type": "NameSpace",
+        "Description": "go file"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main",
+        "Target": "flag",
+        "TargetType": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.output",
+        "Parent": "main.main*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.main",
+        "Parent": "main.main*go",
+        "Type": "Member",
+        "Description": "The main entry point"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main",
+        "Parent": "$depgoparser",
+        "Type": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.projectParser*go",
+        "Parent": "main",
+        "Type": "NameSpace",
+        "Description": "go file"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main",
+        "Target": "go.ast",
+        "TargetType": "NameSpace"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main",
+        "Target": "go.parser",
+        "TargetType": "NameSpace"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main",
+        "Target": "go.token",
+        "TargetType": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseProject",
+        "Parent": "main.projectParser*go",
+        "Type": "Member",
+        "Description": "Parses go files within the project folder and writes the corresponding json Dependinator model file"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseProjectGoFiles",
+        "Parent": "main.projectParser*go",
+        "Type": "Member",
+        "Description": "Parses all go files with the project folder, ignoring test and test data files"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseProjectGoFiles",
+        "Target": "main.modelItems",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseProjectGoFiles",
+        "Target": "main.item",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseGoFile",
+        "Parent": "main.projectParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseGoFile",
+        "Target": "main.modelItems",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseGoFile",
+        "Target": "main.modelItems",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseGoSyntax",
+        "Parent": "main.projectParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseGoSyntax",
+        "Target": "go.ast.File",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseFileDeclarations",
+        "Parent": "main.projectParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseFileDeclarations",
+        "Target": "go.ast.File",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseFileDeclarations",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseDeclaration",
+        "Parent": "main.projectParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseDeclaration",
+        "Target": "go.ast.Decl",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseDeclaration",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addProjectNode",
+        "Parent": "main.projectParser*go",
+        "Type": "Member",
+        "Description": "Add the root project node, which will contain all parsed nodes"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addProjectNode",
+        "Target": "main.modelItems",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addProjectNode",
+        "Target": "main.modelItems",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addPackageNode",
+        "Parent": "main.projectParser*go",
+        "Type": "Member",
+        "Description": "Add the package node, which will contain file nodes within a package"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addPackageNode",
+        "Target": "go.ast.File",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addPackageNode",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addFileNode",
+        "Parent": "main.projectParser*go",
+        "Type": "Member",
+        "Description": "Add a file node, which will contain all items within a file"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addFileNode",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.getPackageName",
+        "Parent": "main.projectParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.getPackageName",
+        "Target": "go.ast.File",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.isIgnoreFile",
+        "Parent": "main.projectParser*go",
+        "Type": "Member",
+        "Description": "Ignoring non go files as well as testdata and test files"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main",
+        "Parent": "$depgoparser",
+        "Type": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.typeParser*go",
+        "Parent": "main",
+        "Type": "NameSpace",
+        "Description": "go file"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main",
+        "Target": "go.ast",
+        "TargetType": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseType",
+        "Parent": "main.typeParser*go",
+        "Type": "Member",
+        "Description": "Parses type declarations"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseType",
+        "Target": "go.ast.TypeSpec",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseType",
+        "Target": "go.ast.GenDecl",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseType",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseStructFields",
+        "Parent": "main.typeParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseStructFields",
+        "Target": "go.ast.StructType",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseStructFields",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addTypeLinks",
+        "Parent": "main.typeParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addTypeLinks",
+        "Target": "go.ast.Expr",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addTypeLinks",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addMapTypeLinks",
+        "Parent": "main.typeParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addMapTypeLinks",
+        "Target": "go.ast.MapType",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addMapTypeLinks",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addFieldsLinks",
+        "Parent": "main.typeParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addFieldsLinks",
+        "Target": "go.ast.Field",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addFieldsLinks",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.getTypeFullName",
+        "Parent": "main.typeParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.getTypeFullName",
+        "Target": "go.ast.Expr",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.getTypeFullName",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.getTypeName",
+        "Parent": "main.typeParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.getTypeName",
+        "Target": "go.ast.Expr",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.addTypeNode",
+        "Parent": "main.typeParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addTypeNode",
+        "Target": "go.ast.TypeSpec",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addTypeNode",
+        "Target": "go.ast.GenDecl",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.addTypeNode",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main",
+        "Parent": "$depgoparser",
+        "Type": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.utils*go",
+        "Parent": "main",
+        "Type": "NameSpace",
+        "Description": "go file"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.reportError",
+        "Parent": "main.utils*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main",
+        "Parent": "$depgoparser",
+        "Type": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.valuesParser*go",
+        "Parent": "main",
+        "Type": "NameSpace",
+        "Description": "go file"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main",
+        "Target": "go.ast",
+        "TargetType": "NameSpace"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseValues",
+        "Parent": "main.valuesParser*go",
+        "Type": "Member",
+        "Description": "Parses file value declarations"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseValues",
+        "Target": "go.ast.ValueSpec",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseValues",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Node": {
+        "Name": "main.parseValue",
+        "Parent": "main.valuesParser*go",
+        "Type": "Member"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseValue",
+        "Target": "go.ast.Ident",
+        "TargetType": "Type"
+      }
+    },
+    {
+      "Link": {
+        "Source": "main.parseValue",
+        "Target": "main.fileContext",
+        "TargetType": "Type"
+      }
+    }
+  ]
+}
