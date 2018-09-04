@@ -1,0 +1,46 @@
+# Line ending handling, read more at:
+# http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/
+# https://help.github.com/articles/dealing-with-line-endings/
+
+# Auto detect text files and perform LF normalization into git repo 
+* text=auto
+
+
+# These files are text and should be normalized (convert crlf =&gt; lf)
+*.bat       text
+*.cd        text
+*.cmd       text
+*.config    text
+*.cs        text diff=csharp
+*.csproj    text
+*.gitignore text
+*.manifest  text
+*.md        text
+*.msbuild   text
+*.nuspec    text
+*.ps1       text
+*.psm1		text
+*.resx      text
+*.ruleset   text
+*.settings  text
+*.sln       text
+*.tt        text
+*.txt       text
+*.xaml      text
+*.xml       text
+*.go
+
+# But do not convert:
+/ServerTest/Resources/*.* -text
+*.dtx -text
+*.utx -text
+
+# Images should be treated as binary
+# (binary is a macro for -text -diff)
+*.png     binary
+*.jpeg    binary
+
+*.sdf     binary
+
+# Declare files that will always have CRLF line endings on checkout.
+*.sln text eol=crlf
